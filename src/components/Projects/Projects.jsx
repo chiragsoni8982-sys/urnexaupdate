@@ -23,6 +23,13 @@ function ProjectCard({ project, index }) {
     imgRef.current.style.transform = 'scale(1) translate(0,0)'
   }
 
+  // Uses a real photo if `project.image` is set; otherwise falls back to the
+  // gradient placeholder so the card never breaks while photos are added
+  // one at a time.
+  const backgroundStyle = project.image
+    ? { backgroundImage: `url(${project.image})` }
+    : { background: GRADIENTS[index % GRADIENTS.length] }
+
   return (
     <SectionReveal delay={index * 0.06} y={60}>
       <a
@@ -34,8 +41,8 @@ function ProjectCard({ project, index }) {
       >
         <div
           ref={imgRef}
-          className="absolute inset-0 transition-transform duration-500 ease-out"
-          style={{ background: GRADIENTS[index % GRADIENTS.length] }}
+          className="absolute inset-0 transition-transform duration-500 ease-out bg-cover bg-center"
+          style={backgroundStyle}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
         <div className="absolute inset-0 p-8 flex flex-col justify-end">

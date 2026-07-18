@@ -52,11 +52,16 @@ export const SERVICES = [
   },
 ]
 
+import meridianImg from '../assets/images/projects/meridian-house.jpg'
+import obsidianImg from '../assets/images/projects/obsidian-tower.jpg'
+import lindenImg from '../assets/images/projects/linden-court.jpg'
+import atriumImg from '../assets/images/projects/the-atrium.jpg'
+
 export const PROJECTS = [
-  { id: 'meridian', title: 'Meridian House', category: 'Private Residence', location: 'Aspen, CO', year: '2025' },
-  { id: 'obsidian', title: 'Obsidian Tower', category: 'Commercial', location: 'Singapore', year: '2024' },
-  { id: 'linden', title: 'Linden Court', category: 'Luxury Villa', location: 'Lake Como, IT', year: '2024' },
-  { id: 'atrium', title: 'The Atrium', category: 'Interior Fit-Out', location: 'New York, NY', year: '2023' },
+  { id: 'meridian', title: 'Meridian House', category: 'Private Residence', location: 'Aspen, CO', year: '2025', image: meridianImg },
+  { id: 'obsidian', title: 'Obsidian Tower', category: 'Commercial', location: 'Singapore', year: '2024', image: obsidianImg },
+  { id: 'linden', title: 'Linden Court', category: 'Luxury Villa', location: 'Lake Como, IT', year: '2024', image: lindenImg },
+  { id: 'atrium', title: 'The Atrium', category: 'Interior Fit-Out', location: 'New York, NY', year: '2023', image: atriumImg },
 ]
 
 export const STATS = [
