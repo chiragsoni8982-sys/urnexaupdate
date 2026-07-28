@@ -47,8 +47,8 @@ export default function Footer() {
           <address className="not-italic text-cream/70 space-y-2" style={{ color: 'rgba(245,245,245,0.7)' }}>
             <p>udaipur,rajasthan</p>
             <p>udaipur,313001</p>
-            <p>hello@urbnexa.com</p>
-            <p>+1 (212) 555 0148</p>
+            <p>urbnexa.com</p>
+            <p>+91 8209760921</p>
           </address>
         </div>
       </div>
