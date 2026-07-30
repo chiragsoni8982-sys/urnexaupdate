@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 import SectionReveal from '../SectionReveal/SectionReveal'
 import MagneticButton from '../MagneticButton/MagneticButton'
-
+import emailjs from "@emailjs/browser";
 const initialValues = { name: '', email: '', project: '', message: '' }
 
 function validate(values) {
@@ -55,14 +55,35 @@ export default function Contact() {
     setValues((v) => ({ ...v, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const nextErrors = validate(values)
-    setErrors(nextErrors)
-    if (Object.keys(nextErrors).length === 0) {
-      setSubmitted(true)
-    }
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  const nextErrors = validate(values);
+  setErrors(nextErrors);
+
+  if (Object.keys(nextErrors).length === 0) {
+    emailjs
+      .send(
+        "service_92ujncy",
+        "template_mv3z07j",
+        {
+          name: values.name,
+          email: values.email,
+          project: values.project,
+          message: values.message,
+        },
+        "uo1TzxCZwNoyUUhi-"
+      )
+      .then(() => {
+        setSubmitted(true);
+        setValues(initialValues);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to send message. Please try again.");
+      });
   }
+};
 
   return (
     <section className="relative py-28 md:py-36 px-6 md:px-10 bg-navy" style={{ background: 'var(--color-navy)' }} id="contact">
